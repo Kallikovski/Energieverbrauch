@@ -63,23 +63,23 @@ export const useEnergieStore = defineStore('energieStore', {
                     months: [
                         {
                             month: 'January',
-                            consumption: 660
+                            consumption: 500
                         },
                         {
                             month: 'Februray',
-                            consumption: 620
+                            consumption: 530
                         },
                         {
                             month: 'March',
-                            consumption: 600
+                            consumption: 640
                         },
                         {
                             month: 'April',
-                            consumption: 620
+                            consumption: 560
                         },
                         {
                             month: 'Mai',
-                            consumption: 680
+                            consumption: 480
                         },
                         {
                             month:'June',

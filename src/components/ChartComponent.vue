@@ -116,6 +116,7 @@ export default defineComponent({
       const labels: string[] = [];
       const data: number[] = [];
       let relatvieChange = 0;
+      let relativeChangeCount = 0;
       apiData[currentYearIndex.value].months.forEach((value, index) => {
         //check if current value is defined and push into data arrays
         if (apiData[currentYearIndex.value].months[index].consumption != null) {
@@ -126,16 +127,18 @@ export default defineComponent({
             relatvieChange -=
               apiData[currentYearIndex.value].months[index - 1].consumption -
               apiData[currentYearIndex.value].months[index].consumption;
+            relativeChangeCount++;
           }
         } else {
           labels.push(value.month);
           // add predicitive values if wanted
           if (predict.value) {
-            data.push(data[index - 1] + relatvieChange);
+            data.push(data[index - 1] + relatvieChange / relativeChangeCount);
           } else {
             data.push(NaN);
           }
         }
+        console.log(relatvieChange / 5);
       });
       return {
         labels,
